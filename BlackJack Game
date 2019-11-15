@@ -9,3 +9,17 @@
 #The dealer must hit when at 16 and must stay on 17
 #Aces can be 1 or 11. They will be prompted to pick
 #if the dealer goes over 21 or "busts", the player wins
+
+#Functions of Blackjack
+
+#deal 2 random cards to player and return sum of cards (deck should be ace, 2-10, jack, queen, and king)
+
+#dealer draws cards, and only one card is shown to the player.
+
+#prompt the user to draw another card, or stay at the sum of cards they have currently. If they choose to hit, deal them another random card.
+
+#dealers second card is revealed and the dealers total is displayed to the player.
+
+#function that makes the dealer hit until they get 17 (must hit on 16).
+
+#compare the players total with the dealers total and print the totals, and the result of the game.
