@@ -1,1 +1,11 @@
-
+#Rules of BlackJack
+#The dealer deals 2 cards to the player
+#Then gives himself 2 cards; one face up and one facedown
+#The player then is given the option to get another card or stay
+#if the player hits and busts(goes over 21), the player loses
+#if player gets 21 or "BlackJack", they win
+#if they stay and still arent at 21
+#the dealer reveals his second card
+#The dealer must hit when at 16 and must stay on 17
+#Aces can be 1 or 11. They will be prompted to pick
+#if the dealer goes over 21 or "busts", the player wins
