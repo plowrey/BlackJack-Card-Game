@@ -23,3 +23,11 @@
 #function that makes the dealer hit until they get 17 (must hit on 16).
 
 #compare the players total with the dealers total and print the totals, and the result of the game.
+
+
+def inst():                      # Instructions 
+    file=open('bj-inst.txt','r') #this is the file where we wrote the rules to BlackJack
+    for line in file:
+        print(line.rstrip())     # the loop reads each line of the file and then prints it
+        input()                  #rstrip gets rid of the extra lines at the end
+    file.close()
