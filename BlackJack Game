@@ -25,7 +25,7 @@
 #compare the players total with the dealers total and print the totals, and the result of the game.
 
 import random as rd    
-sc={'A':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10,'12':10,'13':10}  #dictionary for scorring 
+sc={'1':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10,'12':10,'13':10}  #dictionary for scorring 
 #print(sc['1'][1])
 #print(sc['1'][0])
 
@@ -33,5 +33,19 @@ def inst():                      # Instructions
     file=open('bj-inst.txt','r') #this is the file where we wrote the rules to BlackJack
     for line in file:
         print(line.rstrip())     # the loop reads each line of the file and then prints it
-        input()                  #rstrip gets rid of the extra lines at the end
+        input()                  # rstrip gets rid of the extra lines at the end
     file.close()
+
+
+dealer=[]
+for i in range(2):               # dealer is the hand of the dealer
+    a=rd.randint(1,13)           # the player is then shown the first card the dealer drew. 
+    dealer.append(a)             # to add cards to the dealers hand append the list then iterate over the list to add up the sum 
+print(dealer[0])
+
+print(dealer[1])                 # this shows the dealers second card
+dsum=0
+for i in dealer:                 # this iderates over the list grabbing the number 
+    a=sc[str(i)]                 # this is then checked in the dictionary for the score
+    dsum+=a                      # the score is then added to the sum each time 
+print('the dealer scored: ',dsum)
