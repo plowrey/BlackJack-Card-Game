@@ -29,6 +29,32 @@ deck={'1':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10
 #print(deck['1'][1])
 #print(deck['1'][0])
 
+#this function assigns the player 2 random cards and gives them the total. It then asks the user if they would like like to hit
+#or stay. Once the user stays, it will print the players final total.
+
+def playerhand():
+    pcard1 = rd.choice(list(deck))
+    pcard2 = rd.choice(list(deck))
+    cval1 = deck.get(pcard1)
+    cval2 = deck.get(pcard2)
+    card_tot = cval1 + cval2
+    print('Your Cards are:',pcard1, pcard2)
+    print('Your Total is:', card_tot)
+    hit = 'y'
+    while hit == 'y':
+        hit = str(input('"y" to hit or "n" to stay: '))
+        if hit == 'y':
+            new_card = rd.choice(list(deck))
+            cval3 = deck.get(new_card)
+            card_tot = card_tot + cval3
+            print('Your Cards are:',pcard1,pcard2,new_card)
+            print('Your Total is:', card_tot)
+        else:
+            print('Your Final Total is:',card_tot)
+playerhand()
+
+
+
 def inst():                      # Instructions 
     file=open('bj-inst.txt','r') #this is the file where we wrote the rules to BlackJack
     for line in file:
