@@ -29,29 +29,50 @@ deck={'1':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10
 #print(deck['1'][1])
 #print(deck['1'][0])
 
+
+
 #this function assigns the player 2 random cards and gives them the total. It then asks the user if they would like like to hit
 #or stay. Once the user stays, it will print the players final total.
-
-def playerhand():
+def playerhand(player_hand):
+    
     pcard1 = rd.choice(list(deck))
     pcard2 = rd.choice(list(deck))
+    player_hand.extend([pcard1, pcard2])
     cval1 = deck.get(pcard1)
     cval2 = deck.get(pcard2)
     card_tot = cval1 + cval2
     print('Your Cards are:',pcard1, pcard2)
     print('Your Total is:', card_tot)
+    print('-------------------------------------')
     hit = 'y'
     while hit == 'y':
         hit = str(input('"y" to hit or "n" to stay: '))
         if hit == 'y':
             new_card = rd.choice(list(deck))
+            player_hand.append(new_card)
             cval3 = deck.get(new_card)
             card_tot = card_tot + cval3
-            print('Your Cards are:',pcard1,pcard2,new_card)
+            print('Your Cards are:',player_hand)
             print('Your Total is:', card_tot)
+            print('-------------------------------------')
+            if card_tot > 21:
+                print('You Have Busted! You Lose!')
+                break
+            elif card_tot == 21:
+                print('BlackJack!')
+                break
         else:
+            for i in player_hand:
+                if i == 'A':
+                    i = input('Type 11 or 1? ')
+                    x = int(i)
+                    card_tot = card_tot + x
             print('Your Final Total is:',card_tot)
-playerhand()
+            print('-------------------------------------')
+    return card_tot
+
+player_hand = []
+card_tot = playerhand(player_hand)
 
 
 
