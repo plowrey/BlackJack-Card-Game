@@ -85,14 +85,40 @@ def inst():                      # Instructions
 
 
 dealer=[]
-for i in range(2):               # dealer is the hand of the dealer
-    a=rd.randint(1,13)           # the player is then shown the first card the dealer drew. 
-    dealer.append(a)             # to add cards to the dealers hand append the list then iterate over the list to add up the sum 
-print(dealer[0])
+n=0
+for i in range(2):                            # this is how the dealer gets the first two cards
+    a=rd.randint(1,13)
+    dealer.append(a)
+print(dealer[n])                              # the player is shown the first card
+tot=dscore()
+while tot<17:                                 # if the dealer is total is under 17 they draw another card
+        n+=1
+        a=rd.randint(1,13)      
+        dealer.append(a)
+        print(dealer[n])                      # the next card in the dealers hand will be shown
+        tot=dscore()                          # the total of the dealer is checked again to see if they will draw another 
 
-print(dealer[1])                 # this shows the dealers second card
-dsum=0
-for i in dealer:                 # this iderates over the list grabbing the number 
-    a=deck[str(i)]                 # this is then checked in the dictionary for the score
-    dsum+=a                      # the score is then added to the sum each time 
-print('the dealer scored: ',dsum)
+print(dealer)                                 # all the dealers cards are shown
+print("the dealer's final total is:", tot )
+if tot>21:
+    print("the dealer Busted!")
+    
+
+def dscore():                    # function dscore scores the dealers hand         
+    tot=0
+    for i in dealer:
+        if i=='1':               # using the running total of the dealer we decide wether the dealer will make ace worth 1 or 11
+            if tot<11:
+                a=deck[[str(i)][1]]  # if the dealers running total is over 11 ace's will be 1 if the total is under 11 ace's will be 1 
+                tot+=a
+            else:
+                a=deck[[str(i)][0]]
+                tot+=a
+        else:
+            a=deck[str(i)]
+            tot+=a
+            
+if card_tot>tot:
+    print('Congradulations! you WON!')
+else:
+    Print('you lost.')
