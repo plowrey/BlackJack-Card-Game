@@ -100,13 +100,6 @@ def inst():                      # Instructions
     file.close()
 
 
-
-print(dealer)                                 # all the dealers cards are shown
-print("the dealer's final total is:", tot )
-if tot>21:
-    print("the dealer Busted!")
-    
-
 def dscore():
     tot=0
     for i in dealer:
