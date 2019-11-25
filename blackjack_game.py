@@ -29,6 +29,20 @@ deck={'1':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10
 #print(deck['1'][1])
 #print(deck['1'][0])
 
+dealer=[]
+n=0
+for i in range(2):                            # this is how the dealer gets the first two cards
+    a=rd.randint(1,13)
+    dealer.append(a)
+print(dealer[n])                              # the player is shown the first card
+tot=dscore()
+while tot<17:                                 # if the dealer is total is under 17 they draw another card
+        n+=1
+        a=rd.randint(1,13)      
+        dealer.append(a)
+        print(dealer[n])                      # the next card in the dealers hand will be shown
+        tot=dscore()                          # the total of the dealer is checked again to see if they will draw another 
+
 
 
 #this function assigns the player 2 random cards and gives them the total. It then asks the user if they would like like to hit
@@ -84,19 +98,6 @@ def inst():                      # Instructions
     file.close()
 
 
-dealer=[]
-n=0
-for i in range(2):                            # this is how the dealer gets the first two cards
-    a=rd.randint(1,13)
-    dealer.append(a)
-print(dealer[n])                              # the player is shown the first card
-tot=dscore()
-while tot<17:                                 # if the dealer is total is under 17 they draw another card
-        n+=1
-        a=rd.randint(1,13)      
-        dealer.append(a)
-        print(dealer[n])                      # the next card in the dealers hand will be shown
-        tot=dscore()                          # the total of the dealer is checked again to see if they will draw another 
 
 print(dealer)                                 # all the dealers cards are shown
 print("the dealer's final total is:", tot )
