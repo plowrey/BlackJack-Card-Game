@@ -25,25 +25,27 @@
 #compare the players total with the dealers total and print the totals, and the result of the game.
 
 import random as rd    
-deck={'1':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'11':10,'12':10,'13':10}  #dictionary for scoring 
-#print(deck['1'][1])
-#print(deck['1'][0])
+deck={'A':[1,11],'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'J':10,'Q':10,'K':10}  #dictionary for scoring 
+#print(deck['A'][1])
+#print(deck['A'][0])
 
 dealer=[]
 n=0
-for i in range(2):                            # this is how the dealer gets the first two cards
-    a=rd.randint(1,13)
-    dealer.append(a)
-print(dealer[n])                              # the player is shown the first card
+dcard1=rd.choice(list(deck))
+dcard2=rd.choice(list(deck))
+dealer.extend([dcard1,dcard2])
+print(dealer[n])
 tot=dscore()
-while tot<17:                                 # if the dealer is total is under 17 they draw another card
+while tot<17:
         n+=1
-        a=rd.randint(1,13)      
-        dealer.append(a)
-        print(dealer[n])                      # the next card in the dealers hand will be shown
-        tot=dscore()                          # the total of the dealer is checked again to see if they will draw another 
+        newcard=rd.choice(list(deck))
+        dealer.append(newcard)
+        print(dealer[n])
+        tot=dscore()
 
-
+print("the dealer's final total is:", tot )
+if tot>21:
+    print("the dealer Busted!")
 
 #this function assigns the player 2 random cards and gives them the total. It then asks the user if they would like like to hit
 #or stay. Once the user stays, it will print the players final total.
@@ -105,19 +107,20 @@ if tot>21:
     print("the dealer Busted!")
     
 
-def dscore():                    # function dscore scores the dealers hand         
+def dscore():
     tot=0
     for i in dealer:
-        if i=='1':               # using the running total of the dealer we decide wether the dealer will make ace worth 1 or 11
+        if i=='1':
             if tot<11:
-                a=deck[[str(i)][1]]  # if the dealers running total is over 11 ace's will be 1 if the total is under 11 ace's will be 1 
+                a=deck[[i][1]]
                 tot+=a
             else:
-                a=deck[[str(i)][0]]
+                a=deck[[i][0]]
                 tot+=a
         else:
-            a=deck[str(i)]
+            a=deck[i]
             tot+=a
+    return tot
             
 if card_tot>tot:
     print('Congradulations! you WON!')
